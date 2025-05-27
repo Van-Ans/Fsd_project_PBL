@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioFusion Access Control</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-logo">
+          <i data-lucide="shield-check" class="icon"></i>
+          <span class="logo-text">BioFusion</span>
+        </div>
+        <nav class="navbar-menu">
+          <a href="#home" class="menu-item active">Home</a>
+          <a href="#about" class="menu-item">About</a>
+          <a href="#features" class="menu-item">Features</a>
+        </nav>
+        <div class="navbar-buttons">
+          <a href="#login" class="btn btn-outline">Login</a>
+          <a href="#register" class="btn btn-primary">Register</a>
+        </div>
+        <button class="navbar-toggle" id="menuToggle">
+          <i data-lucide="menu" class="icon"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="pattern-overlay"></div>
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-title">
+              <i data-lucide="shield-check" class="icon-lg"></i>
+              <h1>BiometricFusion Access Control</h1>
+            </div>
+            <p class="hero-description">
+              Advanced multi-modal authentication system combining face, voice, and gesture recognition for unparalleled security.
+            </p>
+            <div class="button-group">
+              <a href="#register" class="btn btn-gradient btn-lg">Register Now</a>
+              <a href="#login" class="btn btn-outline btn-lg">Login</a>
+            </div>
+            <div class="hero-demo">
+              <div class="demo-container">
+                <div class="scan-animation">
+                  <img src="./image.png" alt="Biometric Authentication">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="features">
+        <div class="container">
+          <h2 class="section-title">Three-Factor Authentication</h2>
+          <div class="feature-cards">
+            <!-- Feature Card 1 -->
+            <div class="feature-card">
+              <div class="icon-container">
+                <i data-lucide="eye" class="icon-accent"></i>
+              </div>
+              <h3>Facial Recognition</h3>
+              <p>Advanced facial recognition using OpenCV and face_recognition libraries for accurate identity verification.</p>
+            </div>
+
+            <!-- Feature Card 2 -->
+            <div class="feature-card">
+              <div class="icon-container">
+                <i data-lucide="mic" class="icon-accent"></i>
+              </div>
+              <h3>Voice Authentication</h3>
+              <p>Voice pattern matching using MFCC features and speech recognition for an extra layer of security.</p>
+            </div>
+
+            <!-- Feature Card 3 -->
+            <div class="feature-card">
+              <div class="icon-container">
+                <i data-lucide="fingerprint" class="icon-accent"></i>
+              </div>
+              <h3>Gesture Recognition</h3>
+              <p>Hand gesture pattern detection with MediaPipe or OpenCV for unique motion-based authentication.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section class="how-it-works">
+        <div class="container">
+          <h2 class="section-title">How It Works</h2>
+          <div class="steps-container">
+            <!-- Step 1 -->
+            <div class="step-card">
+              <div class="icon-circle">
+                <i data-lucide="user" class="icon"></i>
+              </div>
+              <h3>Register</h3>
+              <p>Create an account and record your biometric data securely.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card">
+              <div class="icon-circle">
+                <i data-lucide="layers" class="icon"></i>
+              </div>
+              <h3>Authenticate</h3>
+              <p>Provide at least two biometric factors for verification.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+              <div class="icon-circle">
+                <i data-lucide="shield" class="icon"></i>
+              </div>
+              <h3>Access</h3>
+              <p>Gain secure access to your personalized dashboard.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <i data-lucide="shield-check" class="icon"></i>
+            <span class="logo-text">BioFusion</span>
+          </div>
+          <nav class="footer-menu">
+            <a href="#home" class="menu-item">Home</a>
+            <a href="#privacy" class="menu-item">Privacy</a>
+            <a href="#terms" class="menu-item">Terms</a>
+            <a href="#contact" class="menu-item">Contact</a>
+          </nav>
+          <div class="copyright">
+            &copy; <span id="year"></span> BioFusion. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Login</h2>
+        <button class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="authentication-steps">
+          <div class="step active" id="step1">
+            <h3>Face Recognition</h3>
+            <div class="camera-placeholder">
+              <i data-lucide="camera" class="icon-xl"></i>
+              <p>Camera access required</p>
+            </div>
+            <button class="btn btn-primary start-scan">Start Scan</button>
+          </div>
+          <div class="step" id="step2">
+            <h3>Voice Authentication</h3>
+            <div class="voice-placeholder">
+              <i data-lucide="mic" class="icon-xl"></i>
+              <p>Please read the phrase below:</p>
+              <div class="voice-phrase">"My voice is my passport, verify me."</div>
+            </div>
+            <button class="btn btn-primary start-recording">Start Recording</button>
+          </div>
+          <div class="step" id="step3">
+            <h3>Gesture Recognition</h3>
+            <div class="gesture-placeholder">
+              <i data-lucide="hand" class="icon-xl"></i>
+              <p>Perform your registered gesture</p>
+            </div>
+            <button class="btn btn-primary start-gesture">Start Detection</button>
+          </div>
+        </div>
+        <div class="form-footer">
+          <button class="btn btn-primary next-step">Next Step</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Register</h2>
+        <button class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+          </div>
+          <div class="auth-options">
+            <p>Choose at least 2 authentication methods:</p>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="face" checked>
+                <span>Face Recognition</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="voice" checked>
+                <span>Voice Authentication</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="gesture">
+                <span>Gesture Recognition</span>
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Create Account & Setup Biometrics</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
